@@ -3,6 +3,7 @@ const express = require('express');
 
 // routers
 const { playersRouter } = require('./routes/players.routes');
+const { teamsRouter } = require('./routes/teams.routes');
 
 // controllers
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // define endpoints
 app.use('/api/v1/players', playersRouter);
+app.use('/api/v1/teams', teamsRouter);
 
 // global error handler
 
