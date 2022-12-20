@@ -3,8 +3,8 @@ const { app } = require('./app');
 const { initModels } = require('./models/initModels');
 
 // dotenv
-// const dotenv = require('dotenv');
-// dotenv.config({ path: './config.env' });
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
 
 // utils
 const { db } = require('./utils/db.util');
@@ -18,7 +18,7 @@ const startServer = async () => {
 
         await db.sync();
 
-        const PORT = 3977;
+        const PORT = process.env.PORT || 9000;
 
         app.listen(PORT, () => {
             console.log(`your server is running in port ${PORT}`);
