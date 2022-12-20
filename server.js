@@ -1,6 +1,6 @@
 // imports
 const { app } = require('./app');
-// const { initModels } = require('./models/initModels');
+const { initModels } = require('./models/initModels');
 
 // dotenv
 // const dotenv = require('dotenv');
@@ -14,7 +14,7 @@ const startServer = async () => {
         await db.authenticate();
 
         // establish relations models
-        // initModels();
+        initModels();
 
         await db.sync();
 
