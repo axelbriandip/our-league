@@ -18,7 +18,7 @@ const checkValidation = (req, res, next) => {
 }
 
 // create user with validation
-const createUserValidator = (req, res, next) => {
+const createUserValidator = (req, res, next) => [
 	body('name')
 		.isString()
 		.withMessage('Name must be a string')
@@ -51,7 +51,7 @@ const createUserValidator = (req, res, next) => {
 		.isLength({ min: 8 })
 		.withMessage('Password must be at least 8 characters'),
 	checkValidation
-}
+]
 
 module.exports = {
     createUserValidator
