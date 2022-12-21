@@ -39,6 +39,36 @@ const createUser = catchAsync(async(req, res, next) => {
     });
 })
 
+const login = catchAsync(async (req, res, next) => {
+	// Get username and password from req.body
+	const { username, password } = req.body;
+
+	// Validate if the user exist with given email
+	const user = await User.findOne({
+		where: { username, status: 'active' },
+	});
+
+	// Compare passwords (entered password vs db password)
+	// If user doesn't exists or passwords doesn't match, send error
+	if (!user || !(await bcrypt.compare(password, user.password))) {
+		return next(new AppError('Wrong credentials!', 400));
+	}
+
+	// Remove password from response
+	user.password = undefined;
+
+	// Generate JWT (payload, secretOrPrivateKey, options)
+	const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+		expiresIn: '1d',
+	});
+
+	res.status(200).json({
+		status: 'success',
+		data: { user, token },
+	});
+});
+
 module.exports = {
-    createUser
+    createUser,
+    login
 };

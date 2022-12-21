@@ -2,7 +2,8 @@ const express = require('express');
 
 // controllers
 const {
-    createUser
+    createUser,
+    login
 } = require('../controllers/users.controller');
 
 // middlewares
@@ -17,5 +18,6 @@ const { createUserValidator } = require('../middlewares/validators.middleware');
 const usersRouter = express.Router();
 
 usersRouter.post('/', createUserValidator, createUser);
+usersRouter.post('/login', login);
 
 module.exports = { usersRouter };
