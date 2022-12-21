@@ -1,5 +1,7 @@
 // imports
 const { User } = require('../models/user.model');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 // utils
 const { AppError } = require('../utils/appError.util')

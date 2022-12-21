@@ -16,6 +16,6 @@ const { createUserValidator } = require('../middlewares/validators.middleware');
 
 const usersRouter = express.Router();
 
-usersRouter.post('/', createUser);
+usersRouter.post('/', createUserValidator, createUser);
 
 module.exports = { usersRouter };
