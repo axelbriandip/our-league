@@ -7,6 +7,7 @@ const morgan = require('morgan');
 // routers
 const { playersRouter } = require('./routes/players.routes');
 const { teamsRouter } = require('./routes/teams.routes');
+const { usersRouter } = require('./routes/users.routes');
 
 // controllers
 const { globalErrorHandler } = require('./controllers/error.controller');
@@ -30,6 +31,7 @@ else if (process.env.NODE_ENV === 'production') app.use(morgan('combined'));
 // define endpoints
 app.use('/api/v1/players', playersRouter);
 app.use('/api/v1/teams', teamsRouter);
+app.use('/api/v1/users', usersRouter);
 
 // global error handler
 app.use(globalErrorHandler);
