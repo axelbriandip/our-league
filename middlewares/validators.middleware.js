@@ -18,7 +18,7 @@ const checkValidation = (req, res, next) => {
 }
 
 // create user with validation
-const createUserValidator = (req, res, next) => [
+const createUserValidator = [
 	body('name')
 		.isString()
 		.withMessage('Name must be a string')
