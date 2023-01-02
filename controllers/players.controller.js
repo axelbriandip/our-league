@@ -2,13 +2,30 @@
 const { Player } = require('../models/player.model');
 
 const createPlayer = async (req, res) => {
-    const { idTeam, name, lastname, age } = req.body;
-
-    const newPlayer = await Player.create({
-        idTeam,
+    const {
         name,
         lastname,
-        age
+        dni,
+        birthday,
+        pass,
+        // loan,
+        // loan_since,
+        position,
+        // sanctions,
+        // status -> default
+    } = req.body;
+    
+    const newPlayer = await Player.create({
+        name,
+        lastname,
+        dni,
+        birthday,
+        pass,
+        loan: null,
+        loan_since: null,
+        position,
+        sanctions: null,
+        // status -> default
     });
 
     res.status(201).json({

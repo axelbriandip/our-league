@@ -11,8 +11,20 @@ const Team = db.define('team', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    fundation: {
-        type: DataTypes.INTEGER,
+    full_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    abb_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    primary_color: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    secondary_color: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     status: {

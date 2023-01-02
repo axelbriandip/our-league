@@ -7,11 +7,7 @@ const Player = db.define('player', {
         autoIncrement: true,
         allowNull: false
     },
-    idTeam: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    name: {
+    name: { 
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -19,8 +15,32 @@ const Player = db.define('player', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    age: {
+    dni: {
         type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    birthday: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    pass: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    loan: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    loan_since: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    position: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    sanctions: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     status: {

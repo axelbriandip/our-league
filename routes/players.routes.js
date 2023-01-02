@@ -11,6 +11,6 @@ const {
 const playersRouter = express.Router();
 
 playersRouter.get('/', getPlayers);
-playersRouter.post('/', createPlayer);
+playersRouter.post('/create-player', createPlayer);
 
 module.exports = { playersRouter };
